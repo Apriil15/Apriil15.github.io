@@ -7,14 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Apriil15</copyright>
-    <lastBuildDate>Sat, 27 Mar 2021 23:00:54 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Apr 2021 13:02:04 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Shaark</title>
-      <link>/posts/2021/shaark/</link>
-      <pubDate>Sat, 27 Mar 2021 23:00:54 +0800</pubDate>
+      <title>The Clean Coder - 心得</title>
+      <link>/posts/2021/the-clean-coder-review/</link>
+      <pubDate>Sun, 25 Apr 2021 13:02:04 +0800</pubDate>
       
-      <guid>/posts/2021/shaark/</guid>
-      <description>coming soon..</description>
+      <guid>/posts/2021/the-clean-coder-review/</guid>
+      <description>前幾天把 The Clean Coder 看完了，記錄一下心得。大概說一下為什麼會買這本書，比較有想法的點，以及推不推薦。
+為什麼會買 前幾週跟朋友去天瓏書局買書，拿了 Clean Code，以及幾本書。
+結帳的時候，天瓏老闆就說，有另一本雙胞胎書籍，要不要順便拿，價格幾乎是買一送一。
+友人 P 也說這本書是他第一本買完之後真的有看完的書。我翻了一下感覺還行，也沒想太多就順手結帳了 XD
+事實上，我到現在還是不知道 Clean Code + The Clean Coder 這兩本書合起來是多少錢 XDD
+比較有想法的點 書中有提到很多職場生態，例如：何時該說不、何時該說是、給出承諾代表的是什麼、Scrum、TDD，基本上就是大家的日常。
+職業道德  職業發展是你自己的事，老闆沒有義務確保你能夠在職場立於不敗之地。如果把職業發展寄望老闆，結果將會很慘。你應該計畫每週工作 60 小時，前 40 小時給老闆，後 20 小時給自己。
+ 前半段我是蠻認同的，其他多出來的我都當做 bonus。
+20 小時的部分，近期是有的，而且應該還超出許多 XD
+The Flow Zone  進入 zone 時，你可能可以寫更多 code，更快取得 TDD 的反饋。問題在於，進入 zone 時，你其實沒有顧及全域，因此，可能做出之後必須再重做的決策。
+ 相較現在大家推崇的 zone，作者則有不同的看法。不過書中有指出，如果是自己在練習時，進入 zone 則是要追求的。
+我自己是喜歡不受打擾，連對面同事會一直自言自語都覺得有點煩躁 XDD
+TDD 作者看的出來非常推 TDD，也就是 Test-Driven Development。
+這讓我一直反思目前工作上接手的幾個 legacy code，我遇到的狀況是這樣的：
+不敢重構 -&amp;gt; 為什麼不敢重構 -&amp;gt; 怕改壞 -&amp;gt; 為什麼怕改壞 -&amp;gt; 沒有單元測試</description>
     </item>
     
   </channel>
