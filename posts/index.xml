@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Apriil15</copyright>
-    <lastBuildDate>Sun, 25 Apr 2021 13:02:04 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 23:28:36 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 Disqus 幫 Hugo 加上留言板</title>
+      <link>/posts/2021/hugo-add-disqus/</link>
+      <pubDate>Sat, 01 May 2021 23:28:36 +0800</pubDate>
+      
+      <guid>/posts/2021/hugo-add-disqus/</guid>
+      <description>賀！今天終於幫 Blog 加上留言板辣！
+基本上需要做兩件事：
+ 註冊 Disqus 將 Hugo 專案跟 Disqus 做連結  註冊 Disqus 先在 Disqus 完成註冊、設定
+網址 Disqus
+步驟 Website Name 比較重要，記下來待會要用！
+Website Name 比較重要，記下來待會要用！
+Website Name 比較重要，記下來待會要用！
+身為免費仔，直接選 Basic
+Hugo 還沒有在上面，選 Universal Code
+這邊的 Balanced、Strict 可選、可不選
+到這邊 Disqus 設定就完成惹！
+Hugo 專案加東西 接下來，需要幫專案跟 Disqus 做連結
+config.toml  config.toml 加上剛剛 Disqus 的 Website Name  # Disqus disqusShortname = &amp;#34;test&amp;#34; # test 為剛剛註冊的 Website Name disqus.html  layouts/partials 裡面新增 disqus.</description>
+    </item>
+    
     <item>
       <title>The Clean Coder - 心得</title>
       <link>/posts/2021/the-clean-coder-review/</link>

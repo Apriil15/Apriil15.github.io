@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>用 Disqus 幫 Hugo 加上留言板 - Apriil15</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="用 Disqus 幫 Hugo 加上留言板" />
+<meta property="og:description" content="記錄我如何幫 Hugo GitHub Page 加上留言板" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2021/hugo-add-disqus/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-01T23:28:36&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-01T23:28:36&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="用 Disqus 幫 Hugo 加上留言板"/>
+<meta name="twitter:description" content="記錄我如何幫 Hugo GitHub Page 加上留言板"/>
+<script src="/js/feather.min.js"></script>
+	
+	<link href="/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" /><link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="/">Apriil15</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">用 Disqus 幫 Hugo 加上留言板</h1>
+			<div class="meta">Posted on May 1, 2021</div>
+		</div>
+		
+
+		<section class="body">
+			<p>賀！今天終於幫 Blog 加上留言板辣！</p>
+<p>基本上需要做兩件事：</p>
+<ol>
+<li>註冊 Disqus</li>
+<li>將 Hugo 專案跟 Disqus 做連結</li>
+</ol>
+<h2 id="註冊-disqus">註冊 Disqus</h2>
+<p>先在 Disqus 完成註冊、設定</p>
+<h3 id="網址">網址</h3>
+<p><a href="https://disqus.com/">Disqus</a></p>
+<h3 id="步驟">步驟</h3>
+<p><img src="https://i.imgur.com/Mt3Yt6R.png" alt=""></p>
+<p><img src="https://i.imgur.com/zH9C1gf.png" alt=""></p>
+<p><code>Website Name</code> 比較重要，記下來待會要用！</p>
+<p><code>Website Name</code> 比較重要，記下來待會要用！</p>
+<p><code>Website Name</code> 比較重要，記下來待會要用！</p>
+<p><img src="https://i.imgur.com/Mf5q5CN.png" alt=""></p>
+<p>身為免費仔，直接選 <code>Basic</code></p>
+<p><img src="https://i.imgur.com/ALkVdcF.png" alt=""></p>
+<p>Hugo 還沒有在上面，選 <code>Universal Code</code></p>
+<p><img src="https://i.imgur.com/a61P6uq.png" alt=""></p>
+<p><img src="https://i.imgur.com/p72Lyuc.png" alt=""></p>
+<p><img src="https://i.imgur.com/i9NfM0k.png" alt=""></p>
+<p>這邊的 <code>Balanced</code>、<code>Strict</code> 可選、可不選</p>
+<p><img src="https://i.imgur.com/DahZhEW.png" alt=""></p>
+<p>到這邊 Disqus 設定就完成惹！</p>
+<p><img src="https://i.imgur.com/VHYuYUB.png" alt=""></p>
+<h2 id="hugo-專案加東西">Hugo 專案加東西</h2>
+<p>接下來，需要幫專案跟 Disqus 做連結</p>
+<h3 id="configtoml">config.toml</h3>
+<ul>
+<li><code>config.toml</code> 加上剛剛 Disqus 的 <code>Website Name</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#75715e"># Disqus</span>
+<span style="color:#a6e22e">disqusShortname</span> = <span style="color:#e6db74">&#34;test&#34;</span> <span style="color:#75715e"># test 為剛剛註冊的 Website Name</span>
+</code></pre></div><h3 id="disqushtml">disqus.html</h3>
+<ul>
+<li><code>layouts/partials</code> 裡面新增 <code>disqus.html</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;disqus_thread&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+  (<span style="color:#66d9ef">function</span> () {
+    <span style="color:#75715e">// Don&#39;t ever inject Disqus on localhost--it creates unwanted
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// discussions from &#39;localhost:1313&#39; on your Disqus account...
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// if (window.location.hostname == &#34;localhost&#34;) return;
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dsq</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;script&#34;</span>);
+    <span style="color:#a6e22e">dsq</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text/javascript&#34;</span>;
+    <span style="color:#a6e22e">dsq</span>.<span style="color:#66d9ef">async</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">disqus_shortname</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{{ .Site.DisqusShortname }}&#34;</span>;
+    <span style="color:#a6e22e">dsq</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;//&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">disqus_shortname</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.disqus.com/embed.js&#34;</span>;
+    (
+      document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#34;head&#34;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">||</span>
+      document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#34;body&#34;</span>)[<span style="color:#ae81ff">0</span>]
+    ).<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">dsq</span>);
+  })();
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">noscript</span>
+  &gt;Please enable JavaScript to view the
+  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://disqus.com/?ref_noscript&#34;</span>
+    &gt;comments powered by Disqus.&lt;/<span style="color:#f92672">a</span>
+  &gt;&lt;/<span style="color:#f92672">noscript</span>
+&gt;
+&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://disqus.com/&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dsq-brlink&#34;</span>
+  &gt;comments powered by &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;logo-disqus&#34;</span>&gt;Disqus&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">a</span>
+&gt;
+</code></pre></div><blockquote>
+<p>這邊需要注意的是，因為希望等等在本機測試可以顯示結果，所以我已經先把這段註解了</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    // Don&#39;t ever inject Disqus on localhost--it creates unwanted
+    // discussions from &#39;localhost:1313&#39; on your Disqus account...
+    // if (window.location.hostname == &#34;localhost&#34;) return;
+</code></pre></div><h3 id="singlehtml">single.html</h3>
+<ul>
+<li><code>layouts/_default/single.html</code> 裡面，在要顯示的位置補上</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;disqus markdown&#34;</span>&gt;{{ partial &#34;disqus.html&#34; . }}&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>以我的專案為例，我是加在底下這邊</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ define &#34;main&#34; }}
+&lt;<span style="color:#f92672">main</span>&gt;
+	&lt;<span style="color:#f92672">article</span>&gt;
+		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span>&gt;
+			&lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span>&gt;{{ .Title }}&lt;/<span style="color:#f92672">h1</span>&gt;
+			&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span>&gt;Posted on {{ dateFormat &#34;Jan 2, 2006&#34; .Date }}{{ if .Draft }} &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;draft-label&#34;</span>&gt;DRAFT&lt;/<span style="color:#f92672">span</span>&gt; {{ end }}&lt;/<span style="color:#f92672">div</span>&gt;
+		&lt;/<span style="color:#f92672">div</span>&gt;
+		{{ if isset .Params &#34;tldr&#34; }}
+		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tldr&#34;</span>&gt;
+			&lt;<span style="color:#f92672">strong</span>&gt;tl;dr:&lt;/<span style="color:#f92672">strong</span>&gt;
+			{{ .Params.tldr }}
+		&lt;/<span style="color:#f92672">div</span>&gt;{{ end }}
+
+		&lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;body&#34;</span>&gt;
+			{{ .Content }}
+		&lt;/<span style="color:#f92672">section</span>&gt;
+
+		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-tags&#34;</span>&gt;
+			{{ if ne .Type &#34;page&#34; }}
+			{{ if gt .Params.tags 0 }}
+			&lt;<span style="color:#f92672">nav</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;nav tags&#34;</span>&gt;
+				&lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tags&#34;</span>&gt;
+					{{ range .Params.tags }}
+					&lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ &#34;</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">tags</span><span style="color:#960050;background-color:#1e0010">/&#34;</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">relLangURL</span> <span style="color:#960050;background-color:#1e0010">}}{{</span> <span style="color:#960050;background-color:#1e0010">.</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">urlize</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>&gt;{{ . }}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+					{{ end }}
+				&lt;/<span style="color:#f92672">ul</span>&gt;
+			&lt;/<span style="color:#f92672">nav</span>&gt;
+			{{ end }}
+			{{ end }}
+		&lt;/<span style="color:#f92672">div</span>&gt;
+
+        <span style="color:#75715e">&lt;!-- add disqus --&gt;</span>
+		&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;disqus markdown&#34;</span>&gt;
+			{{ partial &#34;disqus.html&#34; . }}
+		&lt;/<span style="color:#f92672">div</span>&gt;
+	&lt;/<span style="color:#f92672">article</span>&gt;
+&lt;/<span style="color:#f92672">main</span>&gt;
+{{ end }}
+</code></pre></div><p>這些都設定好，在本機測試，理論上就會出現留言板，完成！</p>
+<p><img src="https://i.imgur.com/L60pqzJ.png" alt=""></p>
+<h2 id="disqus-其他功能">Disqus 其他功能</h2>
+<ul>
+<li>表情可以從 <code>Reactions</code> 這邊開啟</li>
+</ul>
+<p><img src="https://i.imgur.com/g1l0CSi.png" alt=""></p>
+<h2 id="後記">後記</h2>
+<p>如果這篇對你有幫助，歡迎在下面留言讓我知道！！</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/blog">Blog</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+
+        
+		<div class="disqus markdown">
+			<div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function () {
+    
+    
+    
+
+    var dsq = document.createElement("script");
+    dsq.type = "text/javascript";
+    dsq.async = true;
+    var disqus_shortname = "apriil15";
+    dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+    (
+      document.getElementsByTagName("head")[0] ||
+      document.getElementsByTagName("body")[0]
+    ).appendChild(dsq);
+  })();
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+<a href="https://disqus.com/" class="dsq-brlink"
+  >comments powered by <span class="logo-disqus">Disqus</span></a
+>
+
+		</div>
+	</article>
+</main>
+<footer>
+  <hr /><a class="soc" href="https://github.com/Apriil15" title="GitHub"
+    ><i data-feather="github"></i></a
+  >|⚡️ 2021  © Apriil15 |  Theme made by
+  <a href="https://github.com/athul/archie">Archie</a>
+</footer>
+  <script>
+  feather.replace();
+</script></div>
+    </body>
+</html>
